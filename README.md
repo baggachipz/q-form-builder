@@ -40,7 +40,7 @@ export default {
 In this example, the `myForm` data object array will be updated with form elements as they are added/modified/removed from the builder interface. You can then save that data as you see fit.
 
 ## Sample Data Structure
-```json
+```
 cid: [unique guid string]
 field_options: {
   description: [text used in hint] (default '')
