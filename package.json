@@ -1,15 +1,24 @@
 {
   "name": "q-form-builder",
   "version": "0.1.0",
-  "private": true,
+  "author": "Matt Curtis <mattcurtis@gmail.com>",
+  "description": "Form Builder using drag-and-drop. Uses Quasar Framework and Vue.",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": "src/components/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/baggachipz/q-form-builder#readme",
   "dependencies": {
+    "@quasar/extras": "^1.1.2",
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "quasar": "^1.0.0-beta.24",
+    "vue": "^2.6.10",
+    "luhn": "^2.4.0",
+    "vuedraggable": "^2.21.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
@@ -17,8 +26,12 @@
     "@vue/cli-service": "^3.7.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-imports": "1.5.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-cli-plugin-quasar": "^1.0.0-beta.1",
     "vue-template-compiler": "^2.5.21"
   }
 }
