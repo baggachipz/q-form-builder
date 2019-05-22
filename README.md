@@ -41,14 +41,16 @@ In this example, the `myForm` data object array will be updated with form elemen
 
 ## Sample Data Structure
 ```
-cid: [unique guid string]
-field_options: {
-  description: [text used in hint] (default '')
-  options: [array of options if a multiple choice type, like checkbox or radio]
+{
+  cid: [unique guid string]
+  field_options: {
+    description: [text used in hint] (default '')
+    options: [array of options if a multiple choice type, like checkbox or radio]
+  }
+  field_type: [string describing the field type, e.g. 'text' or 'address']
+  label: [label to use on the form] (default: 'Untitled')
+  required: [boolean whether the field is "required"] (default: true)
 }
-field_type: [string describing the field time, e.g. 'text' or 'address']
-label: [label to use on the form] (default: 'Untitled')
-required: [boolean whether the field is "required"] (default: true)
 ```
 The `field_options` property may be undefined or an empty object, as its contents are technically optional. Fields which require its use will fill that value. At a minimum, a field object will always have `cid`, `field_type`, `label`, and `required`. This data definition was used in order to be backward-compatible with the excellent (but no longer maintained) [FormBuilder](https://github.com/dobtco/formbuilder) library. 
 
