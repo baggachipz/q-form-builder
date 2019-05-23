@@ -55,6 +55,8 @@ In this example, the `myForm` data object array will be updated with form elemen
 The `field_options` property may be undefined or an empty object, as its contents are technically optional. Fields which require its use will fill that value. At a minimum, a field object will always have `cid`, `field_type`, `label`, and `required`. This data definition was used in order to be backward-compatible with the excellent (but no longer maintained) [FormBuilder](https://github.com/dobtco/formbuilder) library. 
 
 ## Advanced Usage
+
+### Fields
 To re-order or remove the fields available in QFormBuilder, the `source-fields` property can be specified on the `q-form-builder` tag as an array of objects specifying the type, icon, and label for each form element. The default list consists of:
 
 ```javascript
@@ -78,12 +80,15 @@ To re-order or remove the fields available in QFormBuilder, the `source-fields` 
 ]
 ```
 
+### Field Source Position
+By default, the source fields appear on the left, with the form construction area on the right. To set the source fields on the right, the setting `nav-position` can be set to `right` (default is `left`).
+
 ### Advanced Usage Example
 
 To only include Email and Phone field objects:
 
 ```html
-<q-form-builder v-model="myForm" :source-fields="mySourceFields" />
+<q-form-builder v-model="myForm" nav-position="right" :source-fields="mySourceFields" />
 ```
 
 ```javascript
