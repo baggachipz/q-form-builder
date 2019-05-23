@@ -48,9 +48,9 @@ export default {
     return {
       hasError: false,
       errors: [],
-      selectedValues: this.value.filter(val => this.field_options.options.indexOf(val) >= 0),
-      selectedOther: this.value.filter(val => this.field_options.options.indexOf(val) < 0).length > 0,
-      selectedOtherValue: this.value.filter(val => this.field_options.options.indexOf(val) < 0).join('')
+      selectedValues: this.defaultSelectedValues(),
+      selectedOther: this.defaultSelectedOther(),
+      selectedOtherValue: this.defaultSelectedOtherValue()
     }
   },
   computed: {
@@ -65,6 +65,15 @@ export default {
     }
   },
   methods: {
+    defaultSelectedValues () {
+      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) >= 0) : []
+    },
+    defaultSelectedOther () {
+      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) < 0).length > 0 : []
+    },
+    defaultSelectedOtherValue () {
+      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) < 0).join('') : ''
+    },
     onUpdate () {
       let vals = []
 
