@@ -83,3 +83,12 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+  .q-option-group
+    .q-radio
+      margin-bottom 5px;
+      margin-top 5px
+      .q-radio__inner
+        margin -5px 0
+</style>
