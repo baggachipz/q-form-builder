@@ -116,7 +116,7 @@ To run the example application, clone the project from [https://github.com/bagga
 
 ### Enter the project directory, install npm dependencies, and run a local server
 ```
-cd q-formbuilder
+cd q-form-builder
 npm install
 npm run serve
 ```
