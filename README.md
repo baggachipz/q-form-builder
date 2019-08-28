@@ -124,6 +124,6 @@ npm run serve
 This example allows you to add form components and logs the full v-model to the debug console with every change.
 
 ## Development Roadmap
- * Additional field type(s): Terms & Conditions
+ * ~~Additional field type(s): Terms & Conditions~~
  * Add form rendering example to Sample Application
  * Ability to load and use custom field types
