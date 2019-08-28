@@ -10,7 +10,7 @@
       <div class="col-12 col-md-6"><q-input v-model="innerValue.last" dense placeholder="Last Name" :debounce="debounce" :rules="getRules('last', required)" :ref="`${id}_last`" /></div>
     </div>
     <div class="row" v-if="hint">
-      <div class="col-12 text-caption">{{ hint }}</div>
+      <div class="col-12 text-caption" v-html="hint"></div>
     </div>
   </div>
 </template>

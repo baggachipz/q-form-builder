@@ -17,7 +17,7 @@
       <div class="col-12 col-md-6"><q-select v-model="innerValue.country" :options="countries" label="Country" :debounce="debounce" :rules="getRules('country', required)" :ref="`${id}_country`" /></div>
     </div>
     <div class="row" v-if="hint">
-      <div class="col-12 text-caption">{{ hint }}</div>
+      <div class="col-12 text-caption" v-html="hint"></div>
     </div>
   </div>
 </template>

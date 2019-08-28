@@ -2,7 +2,7 @@
   <div class="q-form-section-break q-form-builder-element">
     <label v-if="label">{{ label }}</label>
     <q-separator spaced color="secondary" />
-    <p v-if="hint" class="text-caption">{{ hint }}</p>
+    <p v-if="hint" class="text-caption" v-html="hint"></p>
   </div>
 </template>
 

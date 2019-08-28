@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <p class="text-negative text-caption" v-for="(error, idx) in errors" :key="idx">{{ error }}</p>
-      <p v-if="hint" class="text-caption">{{ hint }}</p>
+      <p v-if="hint" class="text-caption" v-html="hint"></p>
     </div>
   </div>
 </template>
@@ -30,9 +30,6 @@ export default {
   extends: FormElement,
   components: { QCheckbox, QOptionGroup, QInput, QList, QItem, QItemSection },
   props: {
-    value: {
-      default: () => []
-    },
     field_options: {
       type: Object,
       required: false,
@@ -49,8 +46,8 @@ export default {
       hasError: false,
       errors: [],
       selectedValues: this.defaultSelectedValues(),
-      selectedOther: this.defaultSelectedOther(),
-      selectedOtherValue: this.defaultSelectedOtherValue()
+      selectedOther: this.defaultSelectedOther().checked,
+      selectedOtherValue: this.defaultSelectedOther().label
     }
   },
   computed: {
@@ -66,15 +63,34 @@ export default {
   },
   methods: {
     defaultSelectedValues () {
-      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) >= 0) : []
+      let returnValues = []
+      if (this.value && Array.isArray(this.value)) {
+        // get values of already-selected values
+        returnValues = this.value
+      } else {
+        // get default selected values as set in the form definition
+        for (let option of this.getOptions()) {
+          if (option.checked) returnValues.push(option.label)
+        }
+      }
+      return returnValues
     },
     defaultSelectedOther () {
-      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) < 0).length > 0 : []
+      if (this.value && Array.isArray(this.value)) {
+        // if the last value in the list is not found in the options list, then it must be from the 'other' list
+        const lastOption = this.value.slice(-1)[0]
+        for (let option of this.getOptions()) {
+          // last value is in the list, so it is not an 'other' value
+          if (option.label === lastOption) return { checked: false, label: '' }
+        }
+        // last value is NOT in the list
+        return { checked: true, label: lastOption }
+      } else return { checked: false, label: '' }
     },
-    defaultSelectedOtherValue () {
-      return this.value && Array.isArray(this.value) ? this.value.filter(val => this.field_options && this.field_options.options && this.field_options.options.indexOf(val) < 0).join('') : ''
+    getOptions () {
+      return this.field_options && this.field_options.options ? this.field_options.options : {}
     },
-    onUpdate () {
+    setInnerValue () {
       let vals = []
 
       vals = this.selectedValues.slice(0)
@@ -82,7 +98,9 @@ export default {
         vals.push(this.selectedOtherValue)
       }
       this.innerValue = vals
-
+    },
+    onUpdate () {
+      this.setInnerValue()
       this.validate()
     },
     validate () {
@@ -100,6 +118,17 @@ export default {
         }
       }
     }
+  },
+  watch: {
+    field_options: {
+      handler () {
+        this.selectedValues = this.defaultSelectedValues()
+      },
+      deep: true
+    }
+  },
+  mounted () {
+    this.setInnerValue()
   }
 }
 </script>

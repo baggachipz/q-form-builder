@@ -2,7 +2,7 @@
   <div class="row q-col-gutter-sm q-form-text q-form-builder-element">
     <div class="col">
       <q-input v-model="innerValue" :label="getLabel" :debounce="debounce" :rules="getRules()" :ref="id" />
-      <p v-if="hint" class="text-caption">{{ hint }}</p>
+      <p v-if="hint" class="text-caption" v-html="hint"></p>
     </div>
   </div>
 </template>

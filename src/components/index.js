@@ -13,6 +13,7 @@ import AddressElement from './elements/AddressElement'
 import PhoneElement from './elements/PhoneElement'
 import FileElement from './elements/FileElement'
 import PaymentElement from './elements/PaymentElement'
+import TermsElement from './elements/TermsElement'
 import SectionBreakElement from './elements/SectionBreakElement'
 import PageBreakElement from './elements/PageBreakElement'
 import * as utils from './utils'
@@ -33,6 +34,7 @@ export {
   PhoneElement,
   FileElement,
   PaymentElement,
+  TermsElement,
   SectionBreakElement,
   PageBreakElement,
   utils
@@ -53,6 +55,7 @@ export default {
   PhoneElement,
   FileElement,
   PaymentElement,
+  TermsElement,
   SectionBreakElement,
   PageBreakElement
 }

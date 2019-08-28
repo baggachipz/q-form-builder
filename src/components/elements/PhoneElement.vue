@@ -6,7 +6,7 @@
           <q-icon name="phone" />
         </template>
       </q-input>
-      <p v-if="hint" class="text-caption">{{ hint }}</p>
+      <p v-if="hint" class="text-caption" v-html="hint"></p>
     </div>
   </div>
 </template>

@@ -1,3 +1,4 @@
+import * as utils from '../utils'
 export default {
   props: {
     value: {},
@@ -47,7 +48,7 @@ export default {
       return this.required ? `${this.label} *` : this.label
     },
     hint () {
-      return this.field_options && this.field_options.description ? this.field_options.description : ''
+      return this.field_options && this.field_options.description ? utils.nl2br(this.field_options.description) : ''
     },
     rules () {
       return []
@@ -69,9 +70,11 @@ export default {
     validate () {
       this.errors = []
       for (let id in this.$refs) {
-        this.$refs[id].validate()
-        if (this.$refs[id].hasError) {
-          this.errors.push({ id: this.$refs[id].innerErrorMessage })
+        if (typeof this.$refs[id].validate === 'function') {
+          this.$refs[id].validate()
+          if (this.$refs[id].hasError) {
+            this.errors.push({ id: this.$refs[id].innerErrorMessage })
+          }
         }
       }
       this.hasError = this.errors.length > 0

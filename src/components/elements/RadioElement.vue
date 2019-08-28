@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <p class="text-negative text-caption" v-for="(error, idx) in errors" :key="idx">{{ error }}</p>
-      <p v-if="hint" class="text-caption">{{ hint }}</p>
+      <p v-if="hint" class="text-caption" v-html="hint"></p>
     </div>
   </div>
 </template>
@@ -89,6 +89,7 @@ export default {
     .q-radio
       margin-bottom 5px
       margin-top 5px
+      align-items flex-start
       .q-radio__inner
         margin -5px 0
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="row q-col-gutter-sm q-form-paragraph q-form-builder-element">
     <q-input style="width: 100%" v-model="innerValue" :label="getLabel" filled type="textarea" :debounce="debounce" :rules="getRules()" :ref="id" />
-    <p v-if="hint" class="text-caption">{{ hint }}</p>
+    <p v-if="hint" class="text-caption" v-html="hint"></p>
   </div>
 </template>
 

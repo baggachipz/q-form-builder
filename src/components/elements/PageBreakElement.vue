@@ -2,7 +2,7 @@
   <div class="q-form-page-break q-form-builder-element">
     <label v-if="label"><strong>Page Break: </strong>{{ label }}</label>
     <q-separator spaced color="primary" />
-    <p class="text-caption" v-if="hint">{{ hint }}</p>
+    <p v-if="hint" class="text-caption" v-html="hint"></p>
   </div>
 </template>
 

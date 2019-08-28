@@ -1,7 +1,7 @@
 <template>
   <div class="q-editable-element">
     <div class="overlay" @click="onClick"></div>
-    <component v-bind:is="element"  :label="value.label" :required="value.required" :field_options="value.field_options" :id="value.id" :cid="value.cid" />
+    <component v-bind:is="element" :label="value.label" :required="value.required" :field_options="value.field_options" :id="value.id" :cid="value.cid" />
   </div>
 </template>
 
@@ -20,12 +20,13 @@ import AddressElement from '../elements/AddressElement'
 import PhoneElement from '../elements/PhoneElement'
 import FileElement from '../elements/FileElement'
 import PaymentElement from '../elements/PaymentElement'
+import TermsElement from '../elements/TermsElement'
 import SectionBreakElement from '../elements/SectionBreakElement'
 import PageBreakElement from '../elements/PageBreakElement'
 
 export default {
   name: 'EditableElement',
-  components: { TextElement, ParagraphElement, CheckboxesElement, RadioElement, DateElement, TimeElement, DropdownElement, EmailElement, NameElement, SimpleNameElement, AddressElement, PhoneElement, FileElement, PaymentElement, SectionBreakElement, PageBreakElement },
+  components: { TextElement, ParagraphElement, CheckboxesElement, RadioElement, DateElement, TimeElement, DropdownElement, EmailElement, NameElement, SimpleNameElement, AddressElement, PhoneElement, FileElement, PaymentElement, TermsElement, SectionBreakElement, PageBreakElement },
   props: ['value'],
   methods: {
     onClick: function () {

@@ -2,11 +2,8 @@
   <div class="q-form-file-upload q-form-builder-element">
     <div class="row q-col-gutter-sm">
       <div class="col-12 col-md-6">
-        <q-uploader v-if="!innerValue" accept=".jpg, .pdf, image/*" auto-upload url="/api/upload" @uploading="onStartUpload" @uploaded="onUpload" :label="getLabel" :field-name="id" :ref="id" color="white" flat square>
-          <template v-slot:header>
-            <q-btn icon-right="cloud_upload" :label="buttonLabel" :color="buttonColor" :disable="imgUploading" align="between" @click="pickFiles" class="full-width" />
-          </template>
-        </q-uploader>
+        <q-uploader class="uploader-hidden" v-if="!innerValue" accept=".jpg, .pdf, image/*" auto-upload :url="uploadPath" @uploading="onStartUpload" @uploaded="onUpload" :label="getLabel" :field-name="id" :ref="id" color="white" flat square />
+        <q-btn v-if="!innerValue" icon-right="cloud_upload" :label="buttonLabel" :color="buttonColor" :disable="imgUploading" align="between" @click="pickFiles()" class="full-width" />
         <q-img contain v-if="innerValue" :src="imgRef" class="upload-display" @error="onImgLoadError">
           <div class="absolute-top text-subtitle2">
             {{ getLabel }}
@@ -27,7 +24,7 @@
     </div>
     <p class="col-12 col-md-6 text-negative text-caption" v-for="(error, idx) in errors" :key="idx">{{ error }}</p>
     <div v-if="hint" class="row q-col-gutter-sm">
-      <p class="col-12 col-md-6 text-caption">{{ hint }}</p>
+      <p class="col-12 col-md-6 text-caption" v-html="hint"></p>
     </div>
   </div>
 </template>
@@ -43,6 +40,12 @@ export default {
     return {
       imgLoadFailed: false,
       imgUploading: false
+    }
+  },
+  props: {
+    uploadPath: {
+      type: String,
+      default: '/api/upload'
     }
   },
   methods: {
@@ -76,7 +79,7 @@ export default {
   },
   computed: {
     imgRef: function () {
-      return this.imgLoadFailed ? require('../../assets/paperclip.svg') : `/assets/${this.innerValue}`
+      return this.imgLoadFailed ? require('../../../assets/paperclip.svg') : `/assets/${this.innerValue}`
     },
     buttonColor: function () {
       return this.hasError ? 'negative' : 'grey-7'
@@ -89,12 +92,8 @@ export default {
 </script>
 
 <style lang="stylus">
-  @import '~quasar-variables'
   .upload-display
     max-height 250px
   .q-uploader
-    width 100%
-    margin 5px 0
-    .q-uploader__list
-      display none
+    display none
 </style>

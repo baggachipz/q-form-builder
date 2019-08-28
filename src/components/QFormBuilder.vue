@@ -8,8 +8,10 @@
       </q-tabs>
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="add">
-          <draggable :list="sourceFields" :clone="createField" :options="sourceOptions">
-            <q-btn type="button" size="12px" dense align="left" class="btn-fixed-width source-field" @click="onAddFieldClick(sourceField.type)" v-for="sourceField in sourceFields" :key="sourceField.type" :icon="sourceField.icon" :label="sourceField.label" />
+          <draggable :list="sourceFields" :clone="createField" :options="sourceOptions" :sort="false">
+            <div class="source-field" v-for="(sourceField, idx) in sourceFields" :key="idx">
+              <q-btn type="button" size="12px" dense align="left" class="btn-fixed-width" @click="onAddFieldClick(sourceField.type)" :icon="sourceField.icon" :label="sourceField.label" v-if="sourceField.type !== ''" />
+            </div>
           </draggable>
         </q-tab-panel>
         <q-tab-panel name="edit">
@@ -99,6 +101,10 @@ export default {
         { type: 'phone', icon: 'phone', label: 'Phone' },
         { type: 'file', icon: 'cloud_upload', label: 'File Upload' },
         { type: 'payment', icon: 'payment', label: 'Payment' },
+        { type: 'terms', icon: 'ballot', label: 'Terms' },
+        { type: '' },
+        { type: '' },
+        { type: '' },
         { type: 'section_break', icon: 'view_agenda', label: 'Section Break' },
         { type: 'page_break', icon: 'call_to_action', label: 'Page Break' }
       ]
@@ -122,6 +128,8 @@ export default {
     duplicateField (idx) {
       let newField = extend(true, {}, this.fields[idx])
       newField.cid = uid()
+      // newField[this.fieldIdName] = null
+      delete newField[this.fieldIdName]
       this.fields.push(newField)
       this.selectForEdit(newField)
     },
@@ -141,6 +149,12 @@ export default {
     },
     isSelectedForEdit (idx) {
       return this.currentField.cid === this.fields[idx].cid
+    },
+    getFieldByCid (cid) {
+      for (let field of this.fields) {
+        if (field.cid === cid) return field
+      }
+      return false
     }
   },
   computed: {
@@ -175,6 +189,7 @@ export default {
     },
     value (val) {
       this.fields = val
+      if (this.currentField) this.selectForEdit(this.getFieldByCid(this.currentField.cid))
     }
   }
 }
@@ -182,11 +197,13 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  @import '~quasar-variables'
 
-  .q-btn.source-field
+  .source-field
     width 129px
+    display inline-block
     margin 0px 2px 5px 2px
+    .q-btn
+      width 100%
 
   .q-page
     padding 20px
