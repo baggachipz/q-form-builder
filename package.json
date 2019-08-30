@@ -1,15 +1,16 @@
 {
   "name": "q-form-builder",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Matt Curtis <mattcurtis@gmail.com>",
   "description": "Form Builder using drag-and-drop. Uses Quasar Framework and Vue.",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name q-form-builder ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "src/components/index.js",
+  "main": "./dist/q-form-builder.common.js",
   "license": "MIT",
   "homepage": "https://github.com/baggachipz/q-form-builder#readme",
   "repository": {
@@ -37,5 +38,12 @@
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-quasar": "^1.0.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ]
 }
