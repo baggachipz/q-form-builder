@@ -10,7 +10,8 @@
     "build-bundle": "vue-cli-service build --target lib --name q-form-builder ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "./dist/q-form-builder.common.js",
+  "main": "dist/q-form-builder.umd.js",
+  "unpkg": "dist/q-form-builder.umd.min.js",
   "license": "MIT",
   "homepage": "https://github.com/baggachipz/q-form-builder#readme",
   "repository": {
@@ -40,10 +41,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
+    "dist/*"
   ]
 }
