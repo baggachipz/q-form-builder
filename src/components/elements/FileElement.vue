@@ -79,7 +79,7 @@ export default {
   },
   computed: {
     imgRef: function () {
-      return this.imgLoadFailed ? require('../../../assets/paperclip.svg') : `/assets/${this.innerValue}`
+      return this.imgLoadFailed ? require('../../assets/paperclip.svg') : `/assets/${this.innerValue}`
     },
     buttonColor: function () {
       return this.hasError ? 'negative' : 'grey-7'
