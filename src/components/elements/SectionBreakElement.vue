@@ -8,6 +8,7 @@
 
 <script>
 import { QSeparator } from 'quasar'
+import * as utils from '../utils'
 
 export default {
   name: 'SectionBreakElement',
@@ -29,7 +30,7 @@ export default {
   },
   computed: {
     hint: function () {
-      return this.field_options.description
+      return this.field_options && this.field_options.description ? utils.nl2br(this.field_options.description) : ''
     }
   },
   methods: {
