@@ -10,7 +10,7 @@
     "build-bundle": "vue-cli-service build --target lib --name q-form-builder ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "dist/q-form-builder.umd.js",
+  "main": "dist/q-form-builder.common.js",
   "unpkg": "dist/q-form-builder.umd.min.js",
   "license": "MIT",
   "homepage": "https://github.com/baggachipz/q-form-builder#readme",
@@ -19,12 +19,12 @@
     "url": "git://github.com/baggachipz/q-form-builder.git"
   },
   "dependencies": {
-    "@quasar/extras": "^1.3.1",
+    "@quasar/extras": "^1.3.2",
     "core-js": "^3.2.1",
-    "quasar": "^1.1.0",
+    "quasar": "^1.1.6",
     "vue": "^2.6.10",
     "luhn": "^2.4.0",
-    "vuedraggable": "^2.23.0"
+    "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -33,7 +33,8 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-transform-imports": "2.0.0",
-    "eslint": "^5.0.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-vue": "^5.2.3",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
