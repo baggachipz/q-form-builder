@@ -57,7 +57,7 @@ The `field_options` property may be undefined or an empty object, as its content
 ## Advanced Usage
 
 ### Fields
-To re-order or remove the fields available in QFormBuilder, the `source-fields` property can be specified on the `q-form-builder` tag as an array of objects specifying the type, icon, and label for each form element. The default list consists of:
+To re-order or remove the fields available in QFormBuilder, the `source-fields` property can be specified on the `q-form-builder` tag as an array of objects specifying the type, icon, and label for each form element. The default list consists of (empty items produce an empty space in the sidebar):
 
 ```javascript
 [
@@ -75,6 +75,10 @@ To re-order or remove the fields available in QFormBuilder, the `source-fields` 
   { type: 'phone', icon: 'phone', label: 'Phone' },
   { type: 'file', icon: 'cloud_upload', label: 'File Upload' },
   { type: 'payment', icon: 'payment', label: 'Payment' },
+  { type: 'terms', icon: 'ballot', label: 'Terms' },
+  { type: '' },
+  { type: '' },
+  { type: '' },
   { type: 'section_break', icon: 'view_agenda', label: 'Section Break' },
   { type: 'page_break', icon: 'call_to_action', label: 'Page Break' }
 ]
@@ -125,5 +129,5 @@ This example allows you to add form components and logs the full v-model to the 
 
 ## Development Roadmap
  * ~~Additional field type(s): Terms & Conditions~~
- * Add form rendering example to Sample Application
+ * ~~Add form rendering example to Sample Application~~
  * Ability to load and use custom field types
