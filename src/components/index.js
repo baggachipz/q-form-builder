@@ -41,6 +41,7 @@ export {
 }
 
 export default {
+  QFormBuilder,
   TextElement,
   ParagraphElement,
   CheckboxesElement,

@@ -1,6 +1,5 @@
 <template>
   <q-layout container style="width: 100%; height: 100%; min-height:calc(100vh - 50px);" view="hHh Lpr fff">
-
     <q-drawer v-model="drawer" show-if-above bordered :side="navPosition">
       <q-tabs v-model="tab" align="justify" dense narrow-indicator>
         <q-tab name="add" label="Add Field" />
@@ -35,7 +34,6 @@
 
       </q-page>
     </q-page-container>
-
   </q-layout>
 </template>
 
