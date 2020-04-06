@@ -69,7 +69,7 @@ export default {
         returnValues = this.value
       } else {
         // get default selected values as set in the form definition
-        for (let option of this.getOptions()) {
+        for (const option of this.getOptions()) {
           if (option.checked) returnValues.push(option.label)
         }
       }
@@ -79,7 +79,7 @@ export default {
       if (this.value && Array.isArray(this.value)) {
         // if the last value in the list is not found in the options list, then it must be from the 'other' list
         const lastOption = this.value.slice(-1)[0]
-        for (let option of this.getOptions()) {
+        for (const option of this.getOptions()) {
           // last value is in the list, so it is not an 'other' value
           if (option.label === lastOption) return { checked: false, label: '' }
         }

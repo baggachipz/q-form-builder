@@ -58,7 +58,7 @@ export default {
     getRules (subField, requiredCheck) {
       const requiredValidation = val => !!val || 'This field is required.'
       if (subField) {
-        if (this.rules.hasOwnProperty(subField)) {
+        if (Object.prototype.hasOwnProperty.call(this.rules, subField)) {
           return requiredCheck ? this.rules[subField].concat(requiredValidation) : this.rules[subField]
         } else {
           return requiredCheck ? [requiredValidation] : []
@@ -69,7 +69,7 @@ export default {
     },
     validate () {
       this.errors = []
-      for (let id in this.$refs) {
+      for (const id in this.$refs) {
         if (typeof this.$refs[id].validate === 'function') {
           this.$refs[id].validate()
           if (this.$refs[id].hasError) {

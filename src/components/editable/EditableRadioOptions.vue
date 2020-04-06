@@ -70,7 +70,7 @@ export default {
     },
     changeSelected: function (label) {
       this.newItem.checked = this.newItem.label === label
-      for (let option of this.value.options) {
+      for (const option of this.value.options) {
         option.checked = option.label === label
       }
     }

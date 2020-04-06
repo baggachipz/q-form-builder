@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     element: function () {
-      let nameParts = this.value.field_type.split('_')
+      const nameParts = this.value.field_type.split('_')
       for (let i = 0; i < nameParts.length; i++) {
         nameParts[i] = nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1)
       }

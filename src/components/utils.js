@@ -2,7 +2,7 @@ export function defaultFieldOptions (type) {
   switch (type) {
     case 'checkboxes':
     case 'radio':
-      return { options: [], 'include_other_option': false, description: '' }
+      return { options: [], include_other_option: false, description: '' }
     case 'dropdown':
       return { options: [], description: '' }
     default:

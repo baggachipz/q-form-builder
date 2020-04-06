@@ -124,7 +124,7 @@ export default {
       this.$delete(this.fields, idx)
     },
     duplicateField (idx) {
-      let newField = extend(true, {}, this.fields[idx])
+      const newField = extend(true, {}, this.fields[idx])
       newField.cid = uid()
       // newField[this.fieldIdName] = null
       delete newField[this.fieldIdName]
@@ -149,7 +149,7 @@ export default {
       return this.currentField.cid === this.fields[idx].cid
     },
     getFieldByCid (cid) {
-      for (let field of this.fields) {
+      for (const field of this.fields) {
         if (field.cid === cid) return field
       }
       return false

@@ -3,6 +3,6 @@ module.exports = {
     quasar: {}
   },
   transpileDependencies: [
-    /[\\\/]node_modules[\\\/]quasar[\\\/]/
+    /node_modules\/quasar\//
   ]
 }

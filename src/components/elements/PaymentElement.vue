@@ -56,7 +56,7 @@ export default {
     },
     rules () {
       return {
-        'ccnum': [(val) => {
+        ccnum: [(val) => {
           // if value wasn't passed in (i.e., first time filling this out) or was changed
           if (!this.value.ccnum || val !== this.value.ccnum) {
             return luhn.validate(val) || 'Please enter a valid credit card.'

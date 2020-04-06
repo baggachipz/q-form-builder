@@ -41,7 +41,7 @@ export default {
       return types.indexOf(this.value.field_type) < 0
     },
     getTypeInfo () {
-      for (let i in this.typeInfo) {
+      for (const i in this.typeInfo) {
         if (this.typeInfo[i].type === this.value.field_type) {
           return this.typeInfo[i]
         }

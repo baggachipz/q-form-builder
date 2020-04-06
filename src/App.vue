@@ -68,13 +68,13 @@ export default {
      * When a value is input into the rendered form, echo it to the debug line
      */
     onInput (val, id) {
-      console.debug(`${id}: ` + JSON.stringify(val))
+      // console.debug(`${id}: ` + JSON.stringify(val))
     },
     /**
      * Determine the name of the Element object based on the 'field_type' of the field data object
      */
     getElement (field) {
-      let nameParts = field.field_type.split('_')
+      const nameParts = field.field_type.split('_')
       for (let i = 0; i < nameParts.length; i++) {
         nameParts[i] = nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1)
       }
@@ -84,7 +84,7 @@ export default {
   watch: {
     fields: {
       handler (val) {
-        console.debug(val)
+        // console.debug(val)
       },
       deep: true
     }
