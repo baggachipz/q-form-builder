@@ -23,7 +23,7 @@ npm install --save q-form-builder
 <q-form-builder v-model="myForm" />
 ```
 ```javascript
-import QFormBuilder from 'q-form-builder'
+import { QFormBuilder } from 'q-form-builder'
 
 export default {
   name: 'MyApp',
