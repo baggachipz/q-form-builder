@@ -1,7 +1,8 @@
 # QFormBuilder
 ## Simple, reusable, drag-and-drop form editor (and renderer) for Quasar (v1) and Vue.js
+[Live Demo Application](https://q-form-builder.curtii.com)
 
-![QFormBuilder usage demo](src/assets/qformbuilder.gif?raw=true "Demo")
+![QFormBuilder usage preview](src/assets/qformbuilder.gif?raw=true "Preview")
 
 ### Want to build an application where your user can drag-and-drop form components to build a form? 
 
