@@ -1,6 +1,6 @@
 {
   "name": "q-form-builder",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Matt Curtis <mattcurtis@gmail.com>",
   "description": "Form Builder using drag-and-drop. Uses Quasar Framework and Vue.",
   "private": false,
